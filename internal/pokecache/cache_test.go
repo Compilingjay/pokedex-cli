@@ -1,15 +1,16 @@
-package pokecache
+package pokecache_test
 
 import (
 	"fmt"
 	"testing"
 	"time"
+
+	. "pokeapi"
+	. "pokecache"
 )
 
 const (
 	interval = 5 * time.Second
-	baseURL  = "https://pokeapi.co/api/v2"
-
 	baseTime = 5 * time.Millisecond
 	waitTime = baseTime + 5*time.Millisecond
 )
@@ -20,11 +21,11 @@ func TestAddGet(t *testing.T) {
 		val []byte
 	}{
 		{
-			key: fmt.Sprintf("%s/location-area", baseURL),
+			key: fmt.Sprintf("%s/location-area", BaseURL),
 			val: []byte("testdata"),
 		},
 		{
-			key: fmt.Sprintf("%s/location-area/eterna-city-area", baseURL),
+			key: fmt.Sprintf("%s/location-area/eterna-city-area", BaseURL),
 			val: []byte("moretestdata"),
 		},
 	}

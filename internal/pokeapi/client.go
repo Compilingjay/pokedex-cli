@@ -31,7 +31,7 @@ func (c *Client) getData(url string) ([]byte, error) {
 }
 
 func (c *Client) GetLocations(pageURL *string) (e RespLocations, n error) {
-	url := baseURL + "/location-area"
+	url := BaseURL + "/location-area"
 	if pageURL != nil {
 		url = *pageURL
 	}
@@ -50,7 +50,7 @@ func (c *Client) GetLocations(pageURL *string) (e RespLocations, n error) {
 }
 
 func (c *Client) GetLocationAreaPokemon(name *string) (Location, error) {
-	url := baseURL + "/location-area/" + *name
+	url := BaseURL + "/location-area/" + *name
 	data, err := c.getData(url)
 	if err != nil {
 		return Location{}, err
@@ -70,7 +70,7 @@ func (c *Client) GetLocationAreaPokemon(name *string) (Location, error) {
 }
 
 func (c *Client) GetPokemon(name *string) (Pokemon, error) {
-	url := baseURL + "/pokemon/" + *name
+	url := BaseURL + "/pokemon/" + *name
 	data, err := c.getData(url)
 	if err != nil {
 		return Pokemon{}, err
